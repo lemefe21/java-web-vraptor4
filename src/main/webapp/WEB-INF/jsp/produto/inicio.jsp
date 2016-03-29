@@ -6,6 +6,6 @@
 <title>Produtos</title>
 </head>
 <body>
-	<h1>Bem vindo ao projeto de produtos VRaptor4</h1>
+	<h1>Bem vindo ao projeto de produtos com VRaptor4</h1>
 </body>
 </html>
