@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Produtos</title>
+<title>Produtos VRaptor</title>
 </head>
 <body>
 	<h1>Bem vindo ao projeto de produtos com VRaptor4</h1>

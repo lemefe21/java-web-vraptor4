@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
-<title>Listagem</title>
+<title>Listagem Produtos</title>
 </head>
 <body>
 	<h1>Listagem de produtos</h1>

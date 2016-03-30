@@ -19,11 +19,13 @@ public class ProdutoController {
 	
 	@Path("/produto/lista")
 	public List<Produto> lista(){
+		
 		EntityManager em = JPAUtil.criaEntityManager();
 		ProdutoDao dao = new ProdutoDao(em);
 		
-		//retorno para view
+		//retorno para view lista.jsp
 		return dao.lista();
+		
 	}
 
 }
