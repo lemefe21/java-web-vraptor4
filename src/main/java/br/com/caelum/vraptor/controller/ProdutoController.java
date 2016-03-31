@@ -27,5 +27,24 @@ public class ProdutoController {
 		return dao.lista();
 		
 	}
+	
+	@Path("/produto/formulario")
+	public void formulario(){
+		
+	}
+	
+	@Path("/produto/adiciona")
+	public void adiciona(Produto produto){
+		
+		System.out.println("Valor produto: " + produto.getValor());
+		
+		EntityManager em = JPAUtil.criaEntityManager();
+		ProdutoDao dao = new ProdutoDao(em);
+		
+		em.getTransaction().begin();
+		dao.adiciona(produto);
+		em.getTransaction().commit();
+	
+	}
 
 }

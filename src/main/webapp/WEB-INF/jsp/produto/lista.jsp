@@ -5,29 +5,35 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../base.css">
 <title>Listagem Produtos</title>
 </head>
 <body>
-	<h1>Listagem de produtos</h1>
+
+	<div class="container">
 	
-	<table class="table table-stripped table-hover table-bordered">
-		<thead>
-			<tr>
-				<th>Nome</th>
-				<th>Valor</th>
-				<th>Quantidade</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${produtoList}" var="produto">
-			<tr>
-				<td>${produto.nome}</td>
-				<td>${produto.valor}</td>
-				<td>${produto.quantidade}</td>
-			</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+		<h1>Listagem de produtos</h1>
+		
+		<table class="table table-stripped table-hover table-bordered">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Valor</th>
+					<th>Quantidade</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${produtoList}" var="produto">
+				<tr>
+					<td>${produto.nome}</td>
+					<td>${produto.valor}</td>
+					<td>${produto.quantidade}</td>
+				</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		
+	</div>
 	
 </body>
 </html>
