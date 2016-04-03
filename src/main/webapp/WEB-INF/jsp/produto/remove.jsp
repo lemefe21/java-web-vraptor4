@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Produto adicionado</title>
+<title>Remove Produto</title>
 </head>
 <body>
 
-	<h1>Produto adicionado com sucesso!</h1>
+	<h1>Produto removido com sucesso!</h1>
 	
 	<a href="<c:url value="/produto/lista"/>">Lista de produtos</a>
 

@@ -36,6 +36,8 @@ public class ProdutoController {
 	@Path("/produto/adiciona")
 	public void adiciona(Produto produto){
 		
+		System.out.println("Produto: " + produto.getNome());
+		
 		EntityManager em = JPAUtil.criaEntityManager();
 		ProdutoDao dao = new ProdutoDao(em);
 		
@@ -43,6 +45,20 @@ public class ProdutoController {
 		dao.adiciona(produto);
 		em.getTransaction().commit();
 	
+	}
+	
+	@Path("/produto/remove")
+	public void remove(Produto produto){
+		
+		System.out.println("Produto removido: " + produto.getId()); //null
+		
+		EntityManager em = JPAUtil.criaEntityManager();
+		ProdutoDao dao = new ProdutoDao(em);
+		
+		em.getTransaction().begin();
+		dao.remove(produto);
+		em.getTransaction().commit();
+		
 	}
 
 }
