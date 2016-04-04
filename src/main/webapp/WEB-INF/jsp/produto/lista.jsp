@@ -30,7 +30,11 @@
 					<td>${produto.valor}</td>
 					<td>${produto.quantidade}</td>
 					<td>
-						<a href="<c:url value='/produto/remove?produto.id=${produto.id}'/>">Remover</a>
+						<form action="<c:url value='/produto/remove'/>" method="post">
+    						<input type="hidden" name="_method" value="DELETE">
+        					<input type="hidden" name="produto.id" value="${produto.id}">
+        					<input type="submit" class="btn btn-danger" value="Remover">
+						</form>
 					</td>
 				</tr>
 				</c:forEach>
