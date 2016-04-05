@@ -49,16 +49,20 @@ public class ProdutoController {
 	
 	@Get
 	public void listaXML(){
+		
 		EntityManager em = JPAUtil.criaEntityManager();
 		ProdutoDao dao = new ProdutoDao(em);
-		result.use(Results.xml()).from(dao.lista()).serialize();;
+		result.use(Results.xml()).from(dao.lista()).serialize();
+		
 	}
 	
 	@Get
 	public void listaJSON(){
+		
 		EntityManager em = JPAUtil.criaEntityManager();
 		ProdutoDao dao = new ProdutoDao(em);
-		result.use(Results.json()).from(dao.lista()).serialize();;
+		result.use(Results.json()).from(dao.lista()).serialize();
+		
 	}
 	
 	@Get
