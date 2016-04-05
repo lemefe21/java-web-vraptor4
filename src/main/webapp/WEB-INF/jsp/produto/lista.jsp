@@ -58,7 +58,17 @@
 			</c:when>
 		</c:choose>
 		
-		<a href="<c:url value="/produto/formulario"/>">Adicionar mais produtos!</a>
+		<a href="<c:url value="/produto/formulario"/>">Adicionar mais produtos!</a><br/>
+		
+		<div class="btn-group" style="margin-top: 15px">
+	  		<button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	    		Acesse essa lista em <span class="caret"></span>
+	  		</button>
+	  		<ul class="dropdown-menu">
+	   			<li><a href="<c:url value='/produto/listaXML'/>">XML</a></li>
+    			<li><a href="<c:url value='/produto/listaJSON'/>">JSON</a></li>
+	  		</ul>
+		</div>
 		
 	</div>
 	
