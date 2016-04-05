@@ -1,10 +1,15 @@
-Projeto do curso online de VRaptor 4
+# Projeto do curso online de VRaptor 4
 =======
 Projeto utilizando VRaptor4 para desenvolver um estoque de produto.
 
-Link projeto base
+[Alura VRaptor4]
+https://www.alura.com.br/curso-online-desenvolvimento-web-com-vraptor-4
+
+[Link projeto base Alura]
 https://codeload.github.com/alura-cursos/desenvolvimento-web-com-vraptor-4/zip/master
 
-VRaptor
+[VRaptor]
 http://www.vraptor.org/pt/
 
+[Bootstrap]
+http://getbootstrap.com/

@@ -41,9 +41,31 @@
 			</tbody>
 		</table>
 		
+		<c:choose>
+			<c:when test="${not empty mensagem}">
+				<div class="alert alert-success alert-dismissible fade in" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  					<span aria-hidden="true">&times;</span>
+				</button>
+				${mensagem}
+				</div>
+			</c:when>
+			<c:when test="${not empty removido}">
+				<div class="alert alert-warning alert-dismissible fade in" role="alert">
+				 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  					<span aria-hidden="true">&times;</span>
+				</button>
+				 ${removido}
+				</div>
+			</c:when>
+		</c:choose>
+		
 		<a href="<c:url value="/produto/formulario"/>">Adicionar mais produtos!</a>
 		
 	</div>
+	
+	<script src="../js/jquery.js" type="text/javascript"></script> 
+	<script src="../js/bootstrap.min.js" type="text/javascript"></script>
 	
 </body>
 </html>

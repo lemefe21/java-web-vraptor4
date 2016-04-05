@@ -30,6 +30,7 @@
 			</div>
 			Quantidade: 
 			<input class="form-control" type="text" name="produto.quantidade" value="${produto.quantidade}"/>
+			
 			<input type="submit" class="btn btn-primary" value="Adiciona Produto">
 		
 		</form>
