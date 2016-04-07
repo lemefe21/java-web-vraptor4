@@ -34,8 +34,13 @@
 			<input type="submit" class="btn btn-primary" value="Adiciona Produto">
 		
 		</form>
+		
+		<c:forEach items="${errors}" var="erro">
+			${erro.category} - ${erro.message}<br/>
+		</c:forEach>
 
 	</div>
+	
 	
 	<script src="../js/jquery.js" type="text/javascript"></script> 
 	<script src="../js/jquery.maskMoney.min.js" type="text/javascript"></script> 

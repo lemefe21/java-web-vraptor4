@@ -1,6 +1,7 @@
 package br.com.caelum.vraptor.controller;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Delete;
@@ -9,6 +10,9 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.dao.ProdutoDao;
 import br.com.caelum.vraptor.model.Produto;
+import br.com.caelum.vraptor.validator.I18nMessage;
+import br.com.caelum.vraptor.validator.SimpleMessage;
+import br.com.caelum.vraptor.validator.Validator;
 import br.com.caelum.vraptor.view.Results;
 
 @Controller
@@ -16,17 +20,20 @@ public class ProdutoController {
 	
 	private final Result result;
 	private final ProdutoDao dao;
+	private final Validator validator;
 	
+	@Deprecated //para evitar sua chamada, uso somento do CDI!
 	public ProdutoController() {
-		//sem argumentos para uso do CDI, onde cria a primeira instancia
-		this(null, null);
+		//sem argumentos para uso do CDI, onde é criada a primeira instância
+		this(null, null, null);
 	}
 
 	//classe Result injetada
 	@Inject
-	public ProdutoController(Result result, ProdutoDao dao) {
+	public ProdutoController(Result result, ProdutoDao dao, Validator validator) {
 		this.result = result;
 		this.dao = dao;
+		this.validator = validator;
 	}
 
 	@Get("/")
@@ -71,11 +78,19 @@ public class ProdutoController {
 	}
 	
 	@Post
-	public void adiciona(Produto produto){
+	public void adiciona(@Valid Produto produto){
 		
 		System.out.println("Produto: " + produto.getNome());
 		
-		//muito acoplamento
+		//vai ler a mensagem de erro do ValidationMessages.properties
+		//validator.check(produto.getNome().trim().length() > 0, 
+				//new I18nMessage("produto.nome", "nome.vazio.caracteres"));
+		
+		//se houver algum erro é direcionado para o formulário para mostrar o erro
+		//utilizando o bean validation
+		validator.onErrorForwardTo(this).formulario();
+		
+		//muito acoplamento...
 		/*EntityManager em = JPAUtil.criaEntityManager();
 		ProdutoDao dao = new ProdutoDao(em);
 		em.getTransaction().begin();
