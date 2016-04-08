@@ -80,11 +80,13 @@ public class ProdutoController {
 	@Post
 	public void adiciona(@Valid Produto produto){
 		
-		System.out.println("Produto: " + produto.getNome());
+		//System.out.println("Produto: " + produto.getNome());
 		
 		//vai ler a mensagem de erro do ValidationMessages.properties
 		//validator.check(produto.getNome().trim().length() > 0, 
 				//new I18nMessage("produto.nome", "nome.vazio.caracteres"));
+		
+		validaCampoNomeProdutoEspacos(produto);
 		
 		//se houver algum erro é direcionado para o formulário para mostrar o erro
 		//utilizando o bean validation
@@ -107,6 +109,17 @@ public class ProdutoController {
 	
 	}
 	
+	private void validaCampoNomeProdutoEspacos(Produto produto) {
+		
+		System.out.println("Produto: " + produto.getNome()	);
+		
+		if(produto.getNome() != null){
+			validator.check(produto.getNome().trim().length() > 0, 
+					new I18nMessage("produto.nome", "nome.vazio.espacos"));
+		}
+		
+	}
+
 	@Delete
 	public void remove(Produto produto){
 		

@@ -35,16 +35,25 @@
 		
 		</form>
 		
-		<c:forEach items="${errors}" var="erro">
-			${erro.category} - ${erro.message}<br/>
-		</c:forEach>
-
+		<c:if test="${not empty errors}">
+			<div class="alert alert-danger" style="margin-top: 10px">
+				<c:forEach items="${errors}" var="erro">
+					* ${erro.message}<br/>
+				</c:forEach>
+			</div>
+		</c:if>
+		
 	</div>
 	
 	
 	<script src="../js/jquery.js" type="text/javascript"></script> 
 	<script src="../js/jquery.maskMoney.min.js" type="text/javascript"></script> 
-	<script> 
+	<script>
+	$('#real').each(function(){
+		var valor = $('#real').val().replace('.', ',');
+		$(this).val('');
+		$(this).val(valor);
+	})
 	$(function(){
 		$("#dolar").maskMoney()
 		$("#real").maskMoney({symbol:"R$",decimal:",",thousands:"."})

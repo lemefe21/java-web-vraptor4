@@ -24,7 +24,7 @@ public class Produto {
 	@Min(value=0, message="{valor.negativo}")
 	private Double valor;
 	
-	@Min(value=0, message="{quantidade.negativa}")
+	@Min(value=1, message="{quantidade.minima.produto}")
 	private Integer quantidade;
 
 	public Produto() {
