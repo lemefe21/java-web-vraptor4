@@ -80,10 +80,12 @@ public class ProdutoController {
 	}
 	
 	@Post
-	public void adiciona(@Valid Produto produto){
+	public void adiciona(@Valid Produto produto, String nome){
 		
 		System.out.println("Produto: " + produto.getNome());
-		System.out.println( "Character Encoding " + request.getCharacterEncoding() );
+		System.out.println("Character Encoding " + request.getCharacterEncoding() );
+		System.out.println("Nome produto request: " + request.getParameter("nome"));
+		System.out.println("Nome: " + nome);
 		
 		//vai ler a mensagem de erro do ValidationMessages.properties
 		//validator.check(produto.getNome().trim().length() > 0, 
