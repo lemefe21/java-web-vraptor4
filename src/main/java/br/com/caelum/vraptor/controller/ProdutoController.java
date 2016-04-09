@@ -1,6 +1,7 @@
 package br.com.caelum.vraptor.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import br.com.caelum.vraptor.Controller;
@@ -11,7 +12,6 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.dao.ProdutoDao;
 import br.com.caelum.vraptor.model.Produto;
 import br.com.caelum.vraptor.validator.I18nMessage;
-import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.caelum.vraptor.view.Results;
 
@@ -21,19 +21,21 @@ public class ProdutoController {
 	private final Result result;
 	private final ProdutoDao dao;
 	private final Validator validator;
+	private HttpServletRequest request;
 	
 	@Deprecated //para evitar sua chamada, uso somento do CDI!
 	public ProdutoController() {
 		//sem argumentos para uso do CDI, onde é criada a primeira instância
-		this(null, null, null);
+		this(null, null, null, null);
 	}
 
 	//classe Result injetada
 	@Inject
-	public ProdutoController(Result result, ProdutoDao dao, Validator validator) {
+	public ProdutoController(Result result, ProdutoDao dao, Validator validator, HttpServletRequest request) {
 		this.result = result;
 		this.dao = dao;
 		this.validator = validator;
+		this.request = request;
 	}
 
 	@Get("/")
@@ -80,7 +82,8 @@ public class ProdutoController {
 	@Post
 	public void adiciona(@Valid Produto produto){
 		
-		//System.out.println("Produto: " + produto.getNome());
+		System.out.println("Produto: " + produto.getNome());
+		System.out.println( "Character Encoding " + request.getCharacterEncoding() );
 		
 		//vai ler a mensagem de erro do ValidationMessages.properties
 		//validator.check(produto.getNome().trim().length() > 0, 
