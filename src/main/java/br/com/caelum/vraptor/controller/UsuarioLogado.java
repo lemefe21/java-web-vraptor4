@@ -11,6 +11,7 @@ import br.com.caelum.vraptor.model.Usuario;
 @Named
 public class UsuarioLogado implements Serializable {
 	
+	//classe que guarda as informações do usuario logado na session
 	//@Named fica disponivel para a jsp's sem a necessidade do result.include
 	//tempo de vida da classe é o tempo da sessão
 	
