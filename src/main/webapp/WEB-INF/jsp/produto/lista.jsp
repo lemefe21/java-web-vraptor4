@@ -12,7 +12,7 @@
 
 	<div class="container">
 	
-		<h1>Listagem de produtos</h1>
+		<h1>Listagem de produtos de ${usuarioLogado.usuario.nome}</h1>
 		
 		<table class="table table-stripped table-hover table-bordered">
 			<thead>

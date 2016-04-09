@@ -46,7 +46,7 @@
 	</div>
 	
 	<script src="../js/jquery.js" type="text/javascript"></script> 
-	<script src="../js/jquery.maskMoney.min.js" type="text/javascript"></script> 
+	<script src="../js/jquery.maskMoney.min.js" type="text/javascript"></script>
 	<script>
 	$('#real').each(function(){
 		var valor = $('#real').val().replace('.', ',');
