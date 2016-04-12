@@ -90,7 +90,7 @@ public class ProdutoController {
 		
 		validaCampoNomeProdutoEspacos(produto);
 		
-		//se houver algum erro a requisição é direcionada para o formulário novamente para mostrar o erro
+		//se houver algum erro a requisiÃ§Ã£o Ã© direcionada para o formulÃ¡rio novamente para mostrar o erro
 		//utilizando o bean validation
 		validator.onErrorForwardTo(this).formulario();
 		
@@ -113,7 +113,7 @@ public class ProdutoController {
 	
 	private void validaCampoNomeProdutoEspacos(Produto produto) {
 		
-		System.out.println("Produto: " + produto.getNome()	);
+		System.out.println("Produto: " + produto.getNome());
 		
 		if(produto.getNome() != null){
 			validator.check(produto.getNome().trim().length() > 0, 

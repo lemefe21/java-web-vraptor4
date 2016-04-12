@@ -10,7 +10,7 @@
 	<description>Um projeto de produtos e estoque com VRaptor 4</description>
 
 	<properties>
-		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>
@@ -112,6 +112,7 @@
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
+					<outputEncoding>UTF-8</outputEncoding>
 				</configuration>
 			</plugin>
 

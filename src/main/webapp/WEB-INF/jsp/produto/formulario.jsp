@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="pt-br">
 <head>
-<meta http-equiv="Content-Type" content="charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../base.css">
 <title>Novo Produto</title>
@@ -16,7 +16,7 @@
 		
 		<h1>Adiciona produto</h1>
 	
-		<!-- boa prática usarmos c:url para caminho relativo -->
+		<!-- boa prÃ¡tica usarmos c:url para caminho relativo -->
 		<form action="<c:url value="/produto/adiciona" />" method="post">
 		
 			<!-- passamos o name para que seja passado como parametro para a request -->
@@ -53,7 +53,7 @@
 		$(this).val('');
 		$(this).val(valor);
 	})
-	//JQuery para limpar caracteres que não sejam numeros dos imputs
+	//JQuery para limpar caracteres que nÃ£o sejam numeros dos imputs
 	/* $('#quantidade').keyup(function () {
     	if (this.value != this.value.replace(/[^0-9\.]/g, '')) {
    	    	this.value = this.value.replace(/[^0-9\.]/g, '');
