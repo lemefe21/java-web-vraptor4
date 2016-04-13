@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../base.css">
-<title>Login Usuário</title>
+<title>Login UsuÃ¡rio</title>
 </head>
 <body>
 
@@ -15,10 +15,10 @@
 	
 		<form action="<c:url value="/login/autentica" />" method="post"> 
 		
-			<h2 class="form-signin-heading">Faça login para acessar o VRaptor-Produtos</h2>
+			<h2 class="form-signin-heading">FaÃ§a login para acessar o VRaptor-Produtos</h2>
 		
 			<div class="input-group" style="margin-bottom: 10px">
-  				<span class="input-group-addon" id="sizing-addon1">Usuário</span>
+  				<span class="input-group-addon" id="sizing-addon1">UsuÃ¡rio</span>
 				<input type="text" class="form-control" name="usuario.nome" />
 			</div>
 			
