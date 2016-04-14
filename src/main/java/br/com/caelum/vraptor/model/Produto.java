@@ -10,6 +10,8 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import br.com.caelum.vraptor.util.EncodingUtil;
+
 
 @Entity
 public class Produto {
@@ -49,7 +51,7 @@ public class Produto {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nome = EncodingUtil.setEncodingUTF8(nome);
 	}
 
 	public Double getValor() {

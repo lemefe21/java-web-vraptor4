@@ -1,5 +1,7 @@
 package br.com.caelum.vraptor.controller;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
