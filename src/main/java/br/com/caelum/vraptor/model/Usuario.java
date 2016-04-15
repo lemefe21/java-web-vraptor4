@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import br.com.caelum.vraptor.util.EncodingUtil;
+
 @Entity
 public class Usuario {
 
@@ -26,7 +28,7 @@ public class Usuario {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nome = EncodingUtil.setEncodingUTF8(nome);
 	}
 
 	public String getSenha() {
@@ -34,7 +36,7 @@ public class Usuario {
 	}
 
 	public void setSenha(String senha) {
-		this.senha = senha;
+		this.senha = EncodingUtil.setEncodingUTF8(senha);
 	}
 
 	public Long getId() {

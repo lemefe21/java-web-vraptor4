@@ -5,7 +5,9 @@ import javax.inject.Inject;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
+import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.anotacao.Public;
 import br.com.caelum.vraptor.dao.UsuarioDao;
 import br.com.caelum.vraptor.model.Usuario;
 import br.com.caelum.vraptor.validator.I18nMessage;
@@ -32,13 +34,15 @@ public class LoginController {
 		this(null, null, null, null);
 	}
 	
-	@Get
+	@Get @Public
 	public void formulario(){
-		
+		//método não interceptado pelo AutorizadorInterceptor
 	}
 	
-	@Post
+	@Post @Public
 	public void autentica(Usuario usuario){
+		
+		//método não interceptado pelo AutorizadorInterceptor
 		
 		if(!dao.existe(usuario)){
 			validator.add(new I18nMessage("login", "login.invalido"));
