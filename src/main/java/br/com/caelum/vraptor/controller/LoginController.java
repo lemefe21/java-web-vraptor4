@@ -42,6 +42,8 @@ public class LoginController {
 	@Post @Public
 	public void autentica(Usuario usuario){
 		
+		//no momento da autenticação o usuario nao vai estar logado, metodo não interceptado
+		
 		//método não interceptado pelo AutorizadorInterceptor
 		
 		if(!dao.existe(usuario)){

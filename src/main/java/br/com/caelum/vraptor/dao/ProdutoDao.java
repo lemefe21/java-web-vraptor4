@@ -24,15 +24,15 @@ public class ProdutoDao {
 	}
 	
 	public void adiciona(Produto produto) {
-		em.getTransaction().begin();
+		//em.getTransaction().begin();
 		em.persist(produto);
-		em.getTransaction().commit();
+		//em.getTransaction().commit();
 	}
 
 	public void remove(Produto produto) {
-		em.getTransaction().begin();
+		//em.getTransaction().begin();
 		em.remove(busca(produto));
-		em.getTransaction().commit();
+		//em.getTransaction().commit();
 	}
 
 	public Produto busca(Produto produto) {
