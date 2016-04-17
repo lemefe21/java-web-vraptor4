@@ -13,3 +13,6 @@ http://www.vraptor.org/pt/
 
 [Bootstrap]
 http://getbootstrap.com/
+
+[Outros Projetos dos Moderadores Alura]
+https://github.com/alura-cursos/moderadores/archive/master.zip
