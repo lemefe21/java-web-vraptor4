@@ -4,6 +4,10 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.apache.commons.mail.Email;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.SimpleEmail;
+
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
@@ -11,6 +15,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.dao.ProdutoDao;
 import br.com.caelum.vraptor.model.Produto;
+import br.com.caelum.vraptor.simplemail.Mailer;
 import br.com.caelum.vraptor.validator.I18nMessage;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.caelum.vraptor.view.Results;
@@ -21,21 +26,23 @@ public class ProdutoController {
 	private final Result result;
 	private final ProdutoDao dao;
 	private final Validator validator;
-	private HttpServletRequest request;
+	private final HttpServletRequest request;
+	private final Mailer mailer;
 	
 	@Deprecated //para evitar sua chamada, uso somento do CDI!
 	public ProdutoController() {
 		//sem argumentos para uso do CDI, onde é criada a primeira instância
-		this(null, null, null, null);
+		this(null, null, null, null, null);
 	}
 
 	//classe Result injetada
 	@Inject
-	public ProdutoController(Result result, ProdutoDao dao, Validator validator, HttpServletRequest request) {
+	public ProdutoController(Result result, ProdutoDao dao, Validator validator, HttpServletRequest request, Mailer mailer) {
 		this.result = result;
 		this.dao = dao;
 		this.validator = validator;
 		this.request = request;
+		this.mailer = mailer;
 	}
 
 	@Get("/")
@@ -111,6 +118,31 @@ public class ProdutoController {
 	
 	}
 	
+	@Get
+	public void enviaPedidosDeNovosItens(Produto produto) throws EmailException{
+		
+		System.out.println("Produto: " + produto.getNome());
+		
+		//vraptor-simplemail utiliza Apache Commons Email
+		Email email = new SimpleEmail();
+		//título email
+		email.setSubject("Precisamos de mais produtos");
+		//corpo do email
+		email.setMsg("O produto " + produto.getNome() +  " está em falta  no estoque!");
+		//destinatário
+		email.addTo("lemefe21@gmail.com");
+		
+		//Mailer realiza o envio lendo as propriedades do production.properties configurado no web.xml
+		mailer.send(email);
+		
+		//alteração necessaria de segurança do Gmail
+		//https://www.google.com/settings/security/lesssecureapps - ativar para app menos seguros
+		
+		result.include("emailpedido", "Solicitação de pedido de compra enviado com sucesso!");
+		result.redirectTo(this).lista();
+		
+	}
+	
 	private void validaCampoNomeProdutoEspacos(Produto produto) {
 		
 		System.out.println("Produto: " + produto.getNome());
@@ -127,7 +159,7 @@ public class ProdutoController {
 		
 		System.out.println("Produto removido: " + produto.getId()); //null
 		
-		/*EntityManager em = JPAUtil.criaEntityManager();
+		/*EntityManager eresult.redirectTo(this).lista();m = JPAUtil.criaEntityManager();
 		ProdutoDao dao = new ProdutoDao(em);
 		em.getTransaction().begin();
 		dao.remove(produto);

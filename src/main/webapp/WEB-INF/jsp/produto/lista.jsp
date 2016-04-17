@@ -21,6 +21,7 @@
 					<th>Valor</th>
 					<th>Quantidade</th>
 					<th>Remover</th>
+					<th>Pedido de Compra</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -36,6 +37,12 @@
         					<input type="submit" class="btn btn-danger" value="Remover">
 						</form>
 					</td>
+					<td>
+					<form action="<c:url value='/produto/enviaPedidosDeNovosItens'/>" method="get">
+        					<input type="hidden" name="produto.nome" value="${produto.nome}">
+        					<input type="submit" class="btn btn-primary" value="Solicitar pedido">
+						</form>
+					</td>
 				</tr>
 				</c:forEach>
 			</tbody>
@@ -44,16 +51,26 @@
 		<c:choose>
 			<c:when test="${not empty mensagem}">
 				<div class="alert alert-success alert-dismissible fade in" role="alert">
+				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
   					<span aria-hidden="true">&times;</span>
 				</button>${mensagem}
 				</div>
 			</c:when>
 			<c:when test="${not empty removido}">
-				<div class="alert alert-warning alert-dismissible fade in" role="alert">
+				<div class="alert alert-danger alert-dismissible fade in" role="alert">
+				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 				 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
   					<span aria-hidden="true">&times;</span>
 				</button>${removido}
+				</div>
+			</c:when>
+			<c:when test="${not empty emailpedido}">
+				<div class="alert alert-info alert-dismissible fade in" role="alert">
+				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+				 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  					<span aria-hidden="true">&times;</span>
+				</button>${emailpedido}
 				</div>
 			</c:when>
 		</c:choose>
